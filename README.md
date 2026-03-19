@@ -1,65 +1,83 @@
 # 🛡️ MuleSense: Neural Graph Forensic Intelligence
 
-![MuleSense Platform](https://raw.githubusercontent.com/Iamnamanpanday/Graph_based_crime_detection/main/frontend/public/logo1.png)
-
-> **"Disrupting the architecture of financial crime with surgical precision."**
-
-MuleSense is a high-fidelity, neural-enhanced forensic intelligence platform designed to identify, visualize, and mitigate **Money Muling** ecosystems. By leveraging advanced spectral graph analysis and gated attention transformers, MuleSense uncovers the hidden "layers" of financial obfuscation that traditional systems fail to detect.
-
----
-
-## ⚡ The Strategic Advantage
-
-Traditional transaction monitoring is linear. **MuleSense is multidimensional.**
-
-- **Neural Map Reconstruction**: Real-time visualization of entity relationships using high-performance graph processing.
-- **Forensic Fingerprinting**: Automated mapping of "Audit Trail" entities to physical identities with 98% confidence.
-- **Blockchain Anchoring**: Every discovery is time-stamped and anchored to a forensic ledger, ensuring immutable history for patent-ready evidence.
-- **Zero-Trust Intelligence**: Secure handling of PII with surgical de-anonymization protocols.
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Live_Operations-00ff9d?style=for-the-badge&logo=opsgenie" alt="Status">
+  <img src="https://img.shields.io/badge/Security-Zero_Trust-black?style=for-the-badge&logo=securityscorecard" alt="Security">
+  <img src="https://img.shields.io/badge/Mainframe-Neural_Command-white?style=for-the-badge&logo=target" alt="Mainframe">
+</p>
 
 ---
 
-## 🛠️ Technology Hub
+## ⚡ The Strategic Objective
+**MuleSense** is a high-fidelity, neural-enhanced forensic intelligence platform designed to disrupt and mitigate **Money Muling** ecosystems. By leveraging advanced spectral graph analysis and gated attention transformers, we uncover the hidden "layers" of financial obfuscation that traditional systems fail to detect.
 
-### Frontend (The Neural Command)
-- **Engine**: React 18 + Vite (Ultralight & Fast)
-- **Visualization**: React Flow (Hyper-responsive 3D Graph logic)
-- **Aesthetics**: Custom Vanilla CSS (Cyber-Green/Obsidian Design System)
-- **Icons**: Lucide-React (Tactical UI suite)
+---
 
-### Backend (The Forensic Core)
-- **API**: FastAPI (Asynchronous High-Performance)
-- **Logic**: Python 3.10+ (Data Science optimized)
-- **Database**: SQLite (Hybrid Relational-JSON storage)
-- **Security**: JWT-anchored Zero-Trust Authentication
+## 🧬 Tactical Tech Stack
+
+### 🟢 Neural Command (Frontend)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Lucide](https://img.shields.io/badge/Lucide_Icons-00ff9d?style=for-the-badge&logo=lucide)
+![CSS3](https://img.shields.io/badge/Custom_CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+### ⬛ Forensic Core (Backend)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Uvicorn](https://img.shields.io/badge/Uvicorn-499848?style=for-the-badge&logo=uvicorn)
+
+---
+
+## 📂 Vault Structure
+
+```text
+📦 MuleSense
+ ┣ 📂 app                     # Forensic Core Infrastructure
+ ┃ ┣ 📂 api                   # Intelligence Exchange (Routes)
+ ┃ ┣ 📂 core                  # Security & Encryption (JWT/Config)
+ ┃ ┣ 📂 models                # Data Schematics (SQLAlchemy)
+ ┃ ┣ 📂 services              # Neural Processing & Logic
+ ┃ ┗ 📜 main.py               # Engine Ignition Point
+ ┣ 📂 frontend                # Neural Command visualization
+ ┃ ┣ 📂 src
+ ┃ ┃ ┣ 📂 components          # Modular UI Tactical Units
+ ┃ ┃ ┣ 📂 pages               # Intelligence Hubs (Dashboard/Team)
+ ┃ ┃ ┣ 📜 App.tsx             # Master Routing Logic
+ ┃ ┃ ┗ 📜 index.css           # Global Aesthetic Directives
+ ┃ ┣ 📂 public                # Neural Assets & Data
+ ┃ ┗ 📜 vite.config.ts        # Propulsion Config
+ ┣ 📜 .env                    # Secure Identity Keys
+ ┣ 📜 .gitignore              # Tactical Stealth Protocols
+ ┣ 📜 README.md               # Mission Briefing
+ ┗ 📜 requirements.txt        # Forensic Module Manifest
+```
 
 ---
 
 ## 🚀 Mission Deployment
 
-### 1. Zero-Point Preparation
-Clone the repository and initialize the forensic vault:
+### 1️⃣ Pulse Check
+Clone the repository and enter the vault:
 ```bash
 git clone https://github.com/Iamnamanpanday/Graph_based_crime_detection.git
 cd Graph_based_crime_detection
 ```
 
-### 2. Backend Orchestration
-Configure the environment and spark the engine:
+### 2️⃣ Ignition (Backend)
+Configure the neural environment:
 ```bash
-# Set up Python environment
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
+# Windows:
+venv\Scripts\activate
 # Install forensic modules
 pip install -r requirements.txt
-
-# Start the API Terminal
+# Launch API
 uvicorn app.main:app --reload
 ```
 
-### 3. Frontend Visualization
-Launch the command center:
+### 3️⃣ Direct Entry (Frontend)
+Ignite the command center:
 ```bash
 cd frontend
 npm install
@@ -72,7 +90,7 @@ npm run dev
 
 The platform is powered by the **MuleSense Intelligence Unit**:
 
-| Name | Role | Intelligence Path |
+| Name | Role | Strategic Path |
 | :--- | :--- | :--- |
 | **Mayuri Satput** | Lead Operative | Security & Architecture |
 | **Naman Panday** | Neural Architect | Core Logic & Forensic Sync |
@@ -83,17 +101,7 @@ The platform is powered by the **MuleSense Intelligence Unit**:
 
 ---
 
-## 📖 Operational Intelligence
-
-### Neural Graph Logic
-The platform uses **Spectral Partitioning** to identify clusters of suspicious activity. When a "Mule Account" is flagged, the engine recursively traces the flow of funds to identify the **Layering Operator**.
-
-### De-anonymization Protocol
-When an investigator selects an entity, the system checks for authenticated credentials before revealing the **Identity Dossier**. This ensures full compliance with global privacy standards while providing actionable intelligence.
-
----
-
 ## 📜 Mission License
-This project is part of a specialized research initiative. Unauthorized replication of the neural weights or graph logic is strictly regulated.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 **MuleSense — The Future of Financial Security.**
