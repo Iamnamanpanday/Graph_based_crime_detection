@@ -92,7 +92,7 @@ The platform is powered by the **MuleSense Intelligence Unit**:
 
 | Name | Role | Strategic Path |
 | :--- | :--- | :--- |
-| **Mayuri Satput** | Lead Operative | Security & Architecture |
+| **Mature Satpute** | Lead Operative | Strategic Path |
 | **Naman Panday** | Neural Architect | Core Logic & Forensic Sync |
 | **Aryan Prajapati** | Visual Intelligence | UI/UX & Interaction Design |
 | **T.murlikrishna** | Forensic Analyst | Data Intelligence & Graph Theory |

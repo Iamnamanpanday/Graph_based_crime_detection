@@ -2,9 +2,9 @@ import { Github, Linkedin, Terminal } from 'lucide-react';
 
 const operatives = [
   {
-    name: "Mayuri Satput",
-    github: "github.com/mayuri-satput",
-    linkedin: "linkedin.com/in/mayuri-satput",
+    name: "Mature Satpute",
+    github: "github.com/mature-satpute",
+    linkedin: "linkedin.com/in/mature-satpute",
     image: "/C:/Users/Naman/.gemini/antigravity/brain/674d21b6-5ac0-4f33-9632-60a5889a3272/lead_operative_avatar_1773958633730.png"
   },
   {
