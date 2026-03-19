@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+pandas
+numpy
+networkx
+torch
+torch-geometric
+scikit-learn
+python-multipart
+web3==7.14.0
+python-dotenv==1.0.1
+py-evm==0.10.1
+eth-tester[py-evm]==0.12.0b1
+sqlalchemy
+passlib[bcrypt]
+python-jose[cryptography]
