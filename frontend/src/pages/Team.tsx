@@ -20,10 +20,10 @@ const operatives = [
     image: "/src/assets/team/aryan.jpg" // Assuming this image will be provided or exists elsewhere
   },
   {
-    name: "T.murliKrishna",
-    github: "github.com/tmurlikrishna",
-    linkedin: "linkedin.com/in/tmurlikrishna",
-    image: "/C:/Users/Naman/.gemini/antigravity/brain/674d21b6-5ac0-4f33-9632-60a5889a3272/analyst_operative_avatar_1773959074776.png"
+    name: "Murli Krishna",
+    github: "github.com/MurliT",
+    linkedin: "www.linkedin.com/in/murli-krishna-4b776b322",
+    image: "/src/assets/team/murli.jpeg"
   },
   {
     name: "Dhanshree Rana",
