@@ -2,9 +2,9 @@ import { Github, Linkedin, Terminal } from 'lucide-react';
 
 const operatives = [
   {
-    name: "Mature Satpute",
-    github: "github.com/mature-satpute",
-    linkedin: "linkedin.com/in/mature-satpute",
+    name: "Mayuri Satpute",
+    github: "github.com/mayuri-satpute",
+    linkedin: "linkedin.com/in/mayuri-satpute",
     image: "/C:/Users/Naman/.gemini/antigravity/brain/674d21b6-5ac0-4f33-9632-60a5889a3272/lead_operative_avatar_1773958633730.png"
   },
   {
@@ -15,9 +15,9 @@ const operatives = [
   },
   {
     name: "Aryan Prajapati",
-    github: "github.com/aryan-prajapati",
-    linkedin: "linkedin.com/in/aryan-prajapati",
-    image: "/C:/Users/Naman/.gemini/antigravity/brain/674d21b6-5ac0-4f33-9632-60a5889a3272/ui_ux_operative_avatar_1773958666011.png"
+    github: "github.com/Aryan92092",
+    linkedin: "www.linkedin.com/in/aryan-prajapati-8177b932a",
+    image: "/src/assets/team/aryan.jpg" // Assuming this image will be provided or exists elsewhere
   },
   {
     name: "T.murliKrishna",
@@ -33,9 +33,9 @@ const operatives = [
   },
   {
     name: "Sneha PESWANI",
-    github: "github.com/sneha-peswani",
-    linkedin: "linkedin.com/in/sneha-peswani",
-    image: "/C:/Users/Naman/.gemini/antigravity/brain/674d21b6-5ac0-4f33-9632-60a5889a3272/fullstack_operative_avatar_1773959330505.png"
+    github: "github.com/sneha12393",
+    linkedin: "www.linkedin.com/in/sneha-peswani-62423235a",
+    image: "/src/assets/team/sneha.jpeg"
   }
 ];
 

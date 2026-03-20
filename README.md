@@ -65,22 +65,16 @@ cd Graph_based_crime_detection
 ```
 
 ### 2️⃣ Ignition (Backend)
-Configure the neural environment:
+Navigate to the root directory and activate the neural core:
 ```bash
-python -m venv venv
 # Windows:
-venv\Scripts\activate
-# Install forensic modules
-pip install -r requirements.txt
-# Launch API
-uvicorn app.main:app --reload
+.\venv_new\Scripts\python.exe -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 ### 3️⃣ Direct Entry (Frontend)
-Ignite the command center:
+Ignite the command interface:
 ```bash
 cd frontend
-npm install
 npm run dev
 ```
 
@@ -92,7 +86,7 @@ The platform is powered by the **MuleSense Intelligence Unit**:
 
 | Name | Role | Strategic Path |
 | :--- | :--- | :--- |
-| **Mature Satpute** | Lead Operative | Strategic Path |
+| **Mayuri Satpute** | Lead Operative | Strategic Path |
 | **Naman Panday** | Neural Architect | Core Logic & Forensic Sync |
 | **Aryan Prajapati** | Visual Intelligence | UI/UX & Interaction Design |
 | **T.murlikrishna** | Forensic Analyst | Data Intelligence & Graph Theory |

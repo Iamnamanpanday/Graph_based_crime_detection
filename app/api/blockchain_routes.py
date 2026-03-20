@@ -37,7 +37,7 @@ async def get_all_blockchain_logs():
     
     db = SessionLocal()
     try:
-        logs = db.query(SuspiciousAccount).order_by(SuspiciousAccount.created_at.desc()).all()
+        logs = db.query(SuspiciousAccount).order_by(SuspiciousAccount.detected_at.desc()).all()
         
         formatted_logs = []
         for log in logs:
@@ -45,7 +45,7 @@ async def get_all_blockchain_logs():
                 "account_hash": log.account_hash,
                 "suspicion_score": log.suspicion_score,
                 "status": log.status,
-                "timestamp": log.created_at.isoformat(),
+                "timestamp": log.detected_at.isoformat() + "Z",
                 "integrity_proof": hashlib.md5(log.account_hash.encode()).hexdigest().upper()[:12]
             })
             

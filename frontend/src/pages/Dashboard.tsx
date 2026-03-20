@@ -44,6 +44,7 @@ const Dashboard = () => {
     onChain: 0,
     uptime: '100%'
   });
+  const [recentDetections, setRecentDetections] = useState<any[]>([]);
 
   const onNodesChange: OnNodesChange = (changes) => setNodes((nds) => applyNodeChanges(changes, nds));
   const onEdgesChange: OnEdgesChange = (changes) => setEdges((eds) => applyEdgeChanges(changes, eds));
@@ -60,6 +61,9 @@ const Dashboard = () => {
         
         setNodes(graphData.nodes);
         setEdges(graphData.edges);
+
+        const detections = await dashboardService.getRecentDetections();
+        setRecentDetections(detections);
       } catch (e) {
         console.error("Failed to fetch dashboard data", e);
       }
@@ -195,17 +199,23 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="live-feed">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="feed-entry">
-                <span className="feed-time">[{new Date().toLocaleTimeString()}]</span>
-                <span className="feed-msg">
-                  System detected <strong>{90 + i}% Risk</strong> on entity {Math.random().toString(36).substring(7).toUpperCase()}
-                </span>
+            {recentDetections.length > 0 ? (
+              recentDetections.map((det, i) => (
+                <div key={i} className="feed-entry">
+                  <span className="feed-time">[{new Date(det.detected_at).toLocaleTimeString()}]</span>
+                  <span className="feed-msg">
+                    System detected <strong>{Math.round(det.suspicion_score)}% Risk</strong> on entity {det.account_hash.substring(0, 8).toUpperCase()}
+                  </span>
+                </div>
+              ))
+            ) : (
+              <div className="feed-entry">
+                <span className="feed-msg">No recent anomalies detected.</span>
               </div>
-            ))}
+            )}
             <div className="feed-entry">
                <span className="feed-time">[{new Date().toLocaleTimeString()}]</span>
-               <span className="feed-msg">Scanning new ledger entries... <strong>PENDING</strong></span>
+               <span className="feed-msg">Scanning new ledger entries... <strong>ACTIVE</strong></span>
             </div>
           </div>
         </div>

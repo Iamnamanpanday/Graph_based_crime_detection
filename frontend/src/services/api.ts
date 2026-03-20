@@ -39,13 +39,17 @@ export const dashboardService = {
         return response.data;
     },
     getInvestigationData: async () => {
-        const response = await axios.get(`${API_BASE}/investigation/flagged-accounts`);
+        const response = await axios.get(`${API_BASE}/investigation/flagged-accounts?sort=desc`);
         return response.data;
     },
     revealIdentity: async (accountHash: string, token: string) => {
         const response = await axios.get(`${API_BASE}/investigation/reveal/${accountHash}`, {
             headers: { 'Authorization': `Bearer ${token}` }
         });
+        return response.data;
+    },
+    getRecentDetections: async () => {
+        const response = await axios.get(`${API_BASE}/investigation/flagged-accounts?limit=5&sort=desc`);
         return response.data;
     },
     reset: async () => {

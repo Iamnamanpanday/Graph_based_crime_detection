@@ -11,37 +11,20 @@ from app.db.session import SessionLocal
 from app.models.database_models import Transaction, SuspiciousAccount, AccountMapping, ProcessingHistory
 
 def _log_results(accounts):
-    """Logs highly suspicious accounts to blockchain and database."""
+    """Logs highly suspicious accounts to database and blockchain."""
     db = SessionLocal()
     try:
+        print(f"Logging {len(accounts)} accounts to forensic vault...")
         for account in accounts:
-            # score is a percentage 0-100
             score = account.get("suspicion_score", 0)
             if score > 0.1: 
                 account_id = str(account.get("account_id", ""))
                 account_hash = hashlib.sha256(account_id.encode()).hexdigest()
                 
-                # 1. Log to Blockchain
-                blockchain_service.log_flagged_account(account_hash, score / 100.0)
-                
-                # 2. Log to Database (SuspiciousAccount)
-                existing = db.query(SuspiciousAccount).filter_by(account_hash=account_hash).first()
-                if not existing:
-                    new_flag = SuspiciousAccount(
-                        account_hash=account_hash,
-                        suspicion_score=score,
-                        status="flagged"
-                    )
-                    db.add(new_flag)
-                
-                # 3. Secure Mapping Vault (Seed PII if missing)
+                # 1. Secure Mapping Vault (Seed PII if missing)
                 mapping = db.query(AccountMapping).filter_by(account_hash=account_hash).first()
                 if not mapping:
-                    # Generate dummy PII for testing
-                    first_names = ["Arjun", "Priya", "Rahul", "Ananya", "Vikram", "Sanya", "Amit", "Neha", "Rohan", "Kavya", "Suresh", "Ishani"]
-                    last_names = ["Sharma", "Gupta", "Patel", "Reddy", "Khan", "Iyer", "Das", "Singh", "Malhotra", "Joshi", "Verma", "Nair"]
-                    full_name = f"{random.choice(first_names)} {random.choice(last_names)}"
-                    
+                    full_name = f"{random.choice(['Arjun', 'Priya', 'Rahul', 'Ananya'])} {random.choice(['Sharma', 'Gupta', 'Patel', 'Reddy'])}"
                     new_mapping = AccountMapping(
                         account_hash=account_hash,
                         original_id=account_id,
@@ -49,10 +32,33 @@ def _log_results(accounts):
                         email=f"{full_name.lower().replace(' ', '.')}@example-bank.com"
                     )
                     db.add(new_mapping)
+                
+                # 2. Log to Database (SuspiciousAccount)
+                existing = db.query(SuspiciousAccount).filter_by(account_hash=account_hash).first()
+                if existing:
+                    existing.suspicion_score = score
+                    existing.detected_at = func.now()
+                    existing.status = "flagged"
+                else:
+                    new_flag = SuspiciousAccount(
+                        account_hash=account_hash,
+                        suspicion_score=score,
+                        status="flagged"
+                    )
+                    db.add(new_flag)
+                
+                # 3. Log to Blockchain (Best effort)
+                try:
+                    blockchain_service.log_flagged_account(account_hash, score / 100.0)
+                except Exception as b_e:
+                    print(f"Blockchain log failed for {account_hash}: {b_e}")
         
         db.commit()
+        print("Vault synchronization complete.")
     except Exception as e:
-        print(f"Error in background logging: {e}")
+        print(f"CRITICAL: Forensic vault sync failed: {e}")
+        import traceback
+        traceback.print_exc()
         db.rollback()
     finally:
         db.close()
@@ -196,9 +202,7 @@ async def process_dataset(file, background_tasks: BackgroundTasks = None):
             reverse=True
         )[:20]
 
-        # Fire off background task to log highly suspicious accounts
-        if background_tasks:
-            background_tasks.add_task(_log_results, top_accounts)
+        _log_results(top_accounts)
 
         # Log to History
         import json

@@ -28,9 +28,21 @@ async def get_current_investigator(token: str = Depends(oauth2_scheme)):
     return username
 
 @router.get("/flagged-accounts")
-async def get_flagged_accounts(db: Session = Depends(get_db)):
-    """Public list of flagged hashes (anonymous)."""
-    return db.query(SuspiciousAccount).all()
+async def get_flagged_accounts(limit: int = 100, sort: str = "asc", db: Session = Depends(get_db)):
+    """List of flagged hashes (anonymous)."""
+    query = db.query(SuspiciousAccount)
+    if sort == "desc":
+        query = query.order_by(SuspiciousAccount.detected_at.desc())
+    results = query.limit(limit).all()
+    
+    # Manually format for UTC Z clarity
+    return [{
+        "id": r.id,
+        "account_hash": r.account_hash,
+        "suspicion_score": r.suspicion_score,
+        "detected_at": r.detected_at.isoformat() + "Z",
+        "status": r.status
+    } for r in results]
 
 @router.get("/reveal/{account_hash}")
 async def reveal_account_info(
